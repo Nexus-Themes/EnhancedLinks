@@ -2,7 +2,7 @@
 export default {
 	meta: {
 		name: "EnhancedLinks",
-		author: "Riddim-GLiTCH",
+		author: "Nexus-Themes",
 		version: "1.0.0",
 		description: "a Mini theme that enhances the appearance of Links in Discord",
 		source: "https://github.com/Nexus-Themes/EnhancedLinks"
