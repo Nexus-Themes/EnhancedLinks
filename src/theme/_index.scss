@@ -1,16 +1,293 @@
-// Your theme...
+/* Improved Links - Prettier Media Links addon */
+:root {
+	--bsky: #0085ff;
+  }
+  
+  [class^=message_] [class^=contents_] [class^=anchor_], [class^=message_] [class^=repliedMessage_] [class^=anchor_], [class^=message_] [class^=modal] [class^=anchor_], [class^=message_] [class^=topic_] [class^=anchor_], [class^=focusLock] [class^=contents_] [class^=anchor_], [class^=focusLock] [class^=repliedMessage_] [class^=anchor_], [class^=focusLock] [class^=modal] [class^=anchor_], [class^=focusLock] [class^=topic_] [class^=anchor_], [class^=title] [class^=contents_] [class^=anchor_], [class^=title] [class^=repliedMessage_] [class^=anchor_], [class^=title] [class^=modal] [class^=anchor_], [class^=title] [class^=topic_] [class^=anchor_] {
+	transition: background-color 50ms ease-out, color 50ms ease-out;
+	color: var(--mention-foreground);
+	background-color: var(--mention-background);
+	padding: 1px 2px;
+	border-radius: 3px;
+	border-bottom: 1px solid var(--brand-700);
+  }
+  [class^=message_] [class^=contents_] [class^=anchor_]::before, [class^=message_] [class^=repliedMessage_] [class^=anchor_]::before, [class^=message_] [class^=modal] [class^=anchor_]::before, [class^=message_] [class^=topic_] [class^=anchor_]::before, [class^=focusLock] [class^=contents_] [class^=anchor_]::before, [class^=focusLock] [class^=repliedMessage_] [class^=anchor_]::before, [class^=focusLock] [class^=modal] [class^=anchor_]::before, [class^=focusLock] [class^=topic_] [class^=anchor_]::before, [class^=title] [class^=contents_] [class^=anchor_]::before, [class^=title] [class^=repliedMessage_] [class^=anchor_]::before, [class^=title] [class^=modal] [class^=anchor_]::before, [class^=title] [class^=topic_] [class^=anchor_]::before {
+	content: "🔗";
+	margin-right: 2px;
+	filter: saturate(0%);
+	font-size: small;
+  }
+  [class^=message_] [class^=contents_] [class^=anchor_]:hover, [class^=message_] [class^=repliedMessage_] [class^=anchor_]:hover, [class^=message_] [class^=modal] [class^=anchor_]:hover, [class^=message_] [class^=topic_] [class^=anchor_]:hover, [class^=focusLock] [class^=contents_] [class^=anchor_]:hover, [class^=focusLock] [class^=repliedMessage_] [class^=anchor_]:hover, [class^=focusLock] [class^=modal] [class^=anchor_]:hover, [class^=focusLock] [class^=topic_] [class^=anchor_]:hover, [class^=title] [class^=contents_] [class^=anchor_]:hover, [class^=title] [class^=repliedMessage_] [class^=anchor_]:hover, [class^=title] [class^=modal] [class^=anchor_]:hover, [class^=title] [class^=topic_] [class^=anchor_]:hover {
+	background-color: var(--brand-experiment);
+  }
 
-.nickname-t08Mck {
-	color: var(--username-colour) !important;
-	display: flex;
-	align-items: center;
-	&::before {
-		content: '';
-		display: block;
-		width: 24px;
-		height: 24px;
-		mask: url('data:image/svg+xml; utf-8,<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>');
-		background: var(--username-colour);
-		margin-right: 8px;
+  
+  [class^=message_] {
+	[class^=contents_] {
+	  [class^=anchor_][href*="spotify.com"] {/* Spotify Chip */
+		font-size: 0;
+		transition: background-color 50ms ease-out,color 50ms ease-out;
+		color: var(--spotify);
+		background-color: color-mix(in srgb, var(--spotify) 20%, transparent);
+		padding: 17px 2px;
+		border-radius: 3px;
+		border-bottom: 1px solid var(--spotify);
+		padding-bottom: 4px;
+		::after{
+		  padding-right: 2px;
+		  font-size: 1rem;
+		  content: "Spotify";
+		}
+		&::before{
+		  content: "⬜";
+		  color: transparent;
+		  background-image: url("/assets/7231645d01e0b14f58cc.svg");
+		  background-repeat: no-repeat;
+		  background-position: center;
+		  background-size: contain;
+		  filter: drop-shadow(0 0 1px black);
+		  font-size: large;
+		}
+		&:hover {
+		  color: var(--white);
+		  background-color: var(--spotify);
+		}
+	  }
+	  [class^=anchor_][href*="youtube.com"], [class^=anchor_][href*="youtu.be"] {/* YouTube Chip */
+		font-size: 0;
+		transition: background-color 50ms ease-out,color 50ms ease-out;
+		color: var(--youtube);
+		background-color: color-mix(in srgb, var(--youtube) 20%, transparent);
+		padding: 17px 2px;
+		border-radius: 3px;
+		border-bottom: 1px solid var(--youtube);
+		padding-bottom: 4px;
+		::after{
+		  padding-right: 2px;
+		  font-size: 1rem;
+		  content: "YouTube";
+		}
+		&::before{
+		  content: "⬜";
+		  color: transparent;
+		  background-image: url("/assets/d8deaf4c4cbec4b8f9d6.svg");
+		  background-repeat: no-repeat;
+		  background-position: center;
+		  background-size: contain;
+		  filter: drop-shadow(0 0 1px black);
+		  font-size: large;
+		}
+		&:hover {
+		  color: var(--white);
+		  background-color: var(--youtube);
+		}
+	  }
+	  [class^=anchor_][href*="/x.com"], [class^=anchor_][href*="twitter.com"],
+	  [class^=anchor_][href*="fixupx.com"], [class^=anchor_][href*="fxtwitter.com"],
+	  [class^=anchor_][href*="fixvx.com"], [class^=anchor_][href*="vxtwitter.com"]    {/* Twitter/X Chip */
+		font-size: 0;
+		transition: background-color 50ms ease-out,color 50ms ease-out;
+		color: var(--twitter);
+		background-color: color-mix(in srgb, var(--twitter) 20%, transparent);
+		padding: 17px 2px;
+		border-radius: 3px;
+		border-bottom: 1px solid var(--twitter);
+		padding-bottom: 4px;
+		::after{
+		  padding-right: 2px;
+		  font-size: 1rem;
+		  content: "Twitter";
+		}
+		&::before{
+		  content: "⬜";
+		  color: transparent;
+		  background-image: url("/assets/f47485602365c946fa52.svg");
+		  background-repeat: no-repeat;
+		  background-position: center;
+		  background-size: contain;
+		  filter: drop-shadow(0 0 1px black);
+		  font-size: large;
+		}
+		&:hover {
+		  color: var(--white);
+		  background-color: var(--twitter);
+		}
+	  }
+	  [class^=anchor_][href*="github.com"] {/* Github Chip */
+		font-size: 0;
+		transition: background-color 50ms ease-out,color 50ms ease-out;
+		color: var(--white);
+		background-color: color-mix(in srgb, var(--github) 20%, transparent);
+		padding: 17px 2px;
+		border-radius: 3px;
+		border-bottom: 1px solid var(--github);
+		padding-bottom: 4px;
+		::after{
+		  padding-right: 2px;
+		  font-size: 1rem;
+		  content: "Github";
+		}
+		&::before{
+		  content: "⬜";
+		  color: transparent;
+		  background-image: url("/assets/767d18d4d02d9a2e1ab1.svg");
+		  background-repeat: no-repeat;
+		  background-position: center;
+		  background-size: contain;
+		  filter: drop-shadow(0 0 1px black);
+		  font-size: large;
+		}
+		&:hover {
+		  
+		  color: var(--white);
+		  background-color: var(--github);
+		}
+	  }
+	  [class^=anchor_][href*="reddit.com"] {/* Reddit Chip */
+		font-size: 0;
+		transition: background-color 50ms ease-out,color 50ms ease-out;
+		color: var(--reddit);
+		background-color: color-mix(in srgb, var(--reddit) 20%, transparent);
+		padding: 17px 2px;
+		border-radius: 3px;
+		border-bottom: 1px solid var(--reddit);
+		padding-bottom: 4px;
+		::after{
+		  padding-right: 2px;
+		  font-size: 1rem;
+		  content: "Reddit";
+		}
+		&::before{
+		  content: "⬜";
+		  color: transparent;
+		  background-image: url("/assets/cc912bf56af0fd3bc301.svg");
+		  background-repeat: no-repeat;
+		  background-position: center;
+		  background-size: contain;
+		  filter: drop-shadow(0 0 1px black);
+		  font-size: large;
+		}
+		&:hover {
+		  color: var(--white);
+		  background-color: var(--reddit);
+		}
+	  }
+	  [class^=anchor_][href*="bsky.app"] {/* Bluesky Chip */
+		font-size: 0;
+		transition: background-color 50ms ease-out,color 50ms ease-out;
+		color: var(--bsky);
+		background-color: color-mix(in srgb, var(--bsky) 20%, transparent);
+		padding: 17px 2px;
+		border-radius: 3px;
+		border-bottom: 1px solid var(--bsky);
+		padding-bottom: 4px;
+		::after{
+		  padding-right: 2px;
+		  font-size: 1rem;
+		  content: "BlueSky Social";
+		}
+		&::before{
+		  content: "⬜";
+		  color: transparent;
+		  background-image: url("https://github.com/bluesky-social/social-app/blob/main/assets/favicon.png?raw=true");
+		  background-repeat: no-repeat;
+		  background-position: center;
+		  background-size: contain;
+		  filter: drop-shadow(0 0 1px black);
+		  font-size: large;
+		}
+		&:hover {
+		  color: var(--white);
+		  background-color: var(--bsky);
+		}
+	  }
+	  [class^=anchor_][href*="store.steampowered.com"] {/* Steam Store Chip */
+		font-size: 0;
+		transition: background-color 50ms ease-out,color 50ms ease-out;
+		color: var(--white);
+		background-color: color-mix(in srgb, var(--steam) 20%, transparent);
+		padding: 17px 2px;
+		border-radius: 3px;
+		border-bottom: 1px solid var(--steam);
+		padding-bottom: 4px;
+		::after{
+		  padding-right: 2px;
+		  font-size: 1rem;
+		  content: "Steam Store";
+		}
+		&::before{
+		  content: "⬜";
+		  color: transparent;
+		  background-image: url("/assets/100f3a82bf746402d6ac.svg");
+		  background-repeat: no-repeat;
+		  background-position: center;
+		  background-size: contain;
+		  filter: drop-shadow(0 0 1px black);
+		  font-size: large;
+		}
+		&:hover {
+		  color: var(--white);
+		  background-color: var(--steam);
+		}
+	  }
+	  [class^=anchor_][href*="steamcommunity.com"] {/* Steam Community Chip */
+		font-size: 0;
+		transition: background-color 50ms ease-out,color 50ms ease-out;
+		color: var(--white);
+		background-color: color-mix(in srgb, var(--steam) 20%, transparent);
+		padding: 17px 2px;
+		border-radius: 3px;
+		border-bottom: 1px solid var(--steam);
+		padding-bottom: 4px;
+		::after{
+		  padding-right: 2px;
+		  font-size: 1rem;
+		  content: "Steam Community";
+		}
+		&::before{
+		  content: "⬜";
+		  color: transparent;
+		  background-image: url("/assets/100f3a82bf746402d6ac.svg");
+		  background-repeat: no-repeat;
+		  background-position: center;
+		  background-size: contain;
+		  filter: drop-shadow(0 0 1px black);
+		  font-size: large;
+		}
+		&:hover {
+		  color: var(--white);
+		  background-color: var(--steam);
+		}
+	  }
+	  [class^=anchor_][href*="help.steampowered.com"] {/* Steam Community Chip */
+		font-size: 0;
+		transition: background-color 50ms ease-out,color 50ms ease-out;
+		color: var(--white);
+		background-color: color-mix(in srgb, var(--steam) 20%, transparent);
+		padding: 17px 2px;
+		border-radius: 3px;
+		border-bottom: 1px solid var(--steam);
+		padding-bottom: 4px;
+		::after{
+		  padding-right: 2px;
+		  font-size: 1rem;
+		  content: "Steam Support";
+		}
+		&::before{
+		  content: "⬜";
+		  color: transparent;
+		  background-image: url("/assets/100f3a82bf746402d6ac.svg");
+		  background-repeat: no-repeat;
+		  background-position: center;
+		  background-size: contain;
+		  filter: drop-shadow(0 0 1px black);
+		  font-size: large;
+		}
+		&:hover {
+		  color: var(--white);
+		  background-color: var(--steam);
+		}
+	  }
 	}
-}
+  }
+  
