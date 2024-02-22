@@ -1,0 +1,294 @@
+/* Improved Links - Prettier Media Links addon */
+:root {
+  --bsky: #0085ff;
+}
+
+[class^=message_] [class^=contents_] [class^=anchor_], [class^=message_] [class^=repliedMessage_] [class^=anchor_], [class^=message_] [class^=modal] [class^=anchor_], [class^=message_] [class^=topic_] [class^=anchor_], [class^=focusLock] [class^=contents_] [class^=anchor_], [class^=focusLock] [class^=repliedMessage_] [class^=anchor_], [class^=focusLock] [class^=modal] [class^=anchor_], [class^=focusLock] [class^=topic_] [class^=anchor_], [class^=title] [class^=contents_] [class^=anchor_], [class^=title] [class^=repliedMessage_] [class^=anchor_], [class^=title] [class^=modal] [class^=anchor_], [class^=title] [class^=topic_] [class^=anchor_] {
+  transition: background-color 50ms ease-out, color 50ms ease-out;
+  color: var(--mention-foreground);
+  background-color: var(--mention-background);
+  padding: 1px 2px;
+  border-radius: 3px;
+  border-bottom: 1px solid var(--brand-700);
+}
+
+[class^=message_] [class^=contents_] [class^=anchor_]::before, [class^=message_] [class^=repliedMessage_] [class^=anchor_]::before, [class^=message_] [class^=modal] [class^=anchor_]::before, [class^=message_] [class^=topic_] [class^=anchor_]::before, [class^=focusLock] [class^=contents_] [class^=anchor_]::before, [class^=focusLock] [class^=repliedMessage_] [class^=anchor_]::before, [class^=focusLock] [class^=modal] [class^=anchor_]::before, [class^=focusLock] [class^=topic_] [class^=anchor_]::before, [class^=title] [class^=contents_] [class^=anchor_]::before, [class^=title] [class^=repliedMessage_] [class^=anchor_]::before, [class^=title] [class^=modal] [class^=anchor_]::before, [class^=title] [class^=topic_] [class^=anchor_]::before {
+  content: "🔗";
+  margin-right: 2px;
+  filter: saturate(0%);
+  font-size: small;
+}
+
+[class^=message_] [class^=contents_] [class^=anchor_]:hover, [class^=message_] [class^=repliedMessage_] [class^=anchor_]:hover, [class^=message_] [class^=modal] [class^=anchor_]:hover, [class^=message_] [class^=topic_] [class^=anchor_]:hover, [class^=focusLock] [class^=contents_] [class^=anchor_]:hover, [class^=focusLock] [class^=repliedMessage_] [class^=anchor_]:hover, [class^=focusLock] [class^=modal] [class^=anchor_]:hover, [class^=focusLock] [class^=topic_] [class^=anchor_]:hover, [class^=title] [class^=contents_] [class^=anchor_]:hover, [class^=title] [class^=repliedMessage_] [class^=anchor_]:hover, [class^=title] [class^=modal] [class^=anchor_]:hover, [class^=title] [class^=topic_] [class^=anchor_]:hover {
+  background-color: var(--brand-experiment);
+}
+
+[class^=message_] [class^=contents_] [class^=anchor_][href*="spotify.com"] { /* Spotify Chip */
+  font-size: 0;
+  transition: background-color 50ms ease-out, color 50ms ease-out;
+  color: var(--spotify);
+  background-color: color-mix(in srgb, var(--spotify) 20%, transparent);
+  padding: 17px 2px;
+  border-radius: 3px;
+  border-bottom: 1px solid var(--spotify);
+  padding-bottom: 4px;
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="spotify.com"] ::after {
+  padding-right: 2px;
+  font-size: 1rem;
+  content: "Spotify";
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="spotify.com"]::before {
+  content: "⬜";
+  color: transparent;
+  background-image: url("/assets/7231645d01e0b14f58cc.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter: drop-shadow(0 0 1px black);
+  font-size: large;
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="spotify.com"]:hover {
+  color: var(--white);
+  background-color: var(--spotify);
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="youtube.com"], [class^=message_] [class^=contents_] [class^=anchor_][href*="youtu.be"] { /* YouTube Chip */
+  font-size: 0;
+  transition: background-color 50ms ease-out, color 50ms ease-out;
+  color: var(--youtube);
+  background-color: color-mix(in srgb, var(--youtube) 20%, transparent);
+  padding: 17px 2px;
+  border-radius: 3px;
+  border-bottom: 1px solid var(--youtube);
+  padding-bottom: 4px;
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="youtube.com"] ::after, [class^=message_] [class^=contents_] [class^=anchor_][href*="youtu.be"] ::after {
+  padding-right: 2px;
+  font-size: 1rem;
+  content: "YouTube";
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="youtube.com"]::before, [class^=message_] [class^=contents_] [class^=anchor_][href*="youtu.be"]::before {
+  content: "⬜";
+  color: transparent;
+  background-image: url("/assets/d8deaf4c4cbec4b8f9d6.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter: drop-shadow(0 0 1px black);
+  font-size: large;
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="youtube.com"]:hover, [class^=message_] [class^=contents_] [class^=anchor_][href*="youtu.be"]:hover {
+  color: var(--white);
+  background-color: var(--youtube);
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="/x.com"], [class^=message_] [class^=contents_] [class^=anchor_][href*="twitter.com"],
+[class^=message_] [class^=contents_] [class^=anchor_][href*="fixupx.com"], [class^=message_] [class^=contents_] [class^=anchor_][href*="fxtwitter.com"],
+[class^=message_] [class^=contents_] [class^=anchor_][href*="fixvx.com"], [class^=message_] [class^=contents_] [class^=anchor_][href*="vxtwitter.com"] { /* Twitter/X Chip */
+  font-size: 0;
+  transition: background-color 50ms ease-out, color 50ms ease-out;
+  color: var(--twitter);
+  background-color: color-mix(in srgb, var(--twitter) 20%, transparent);
+  padding: 17px 2px;
+  border-radius: 3px;
+  border-bottom: 1px solid var(--twitter);
+  padding-bottom: 4px;
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="/x.com"] ::after, [class^=message_] [class^=contents_] [class^=anchor_][href*="twitter.com"] ::after,
+[class^=message_] [class^=contents_] [class^=anchor_][href*="fixupx.com"] ::after, [class^=message_] [class^=contents_] [class^=anchor_][href*="fxtwitter.com"] ::after,
+[class^=message_] [class^=contents_] [class^=anchor_][href*="fixvx.com"] ::after, [class^=message_] [class^=contents_] [class^=anchor_][href*="vxtwitter.com"] ::after {
+  padding-right: 2px;
+  font-size: 1rem;
+  content: "Twitter";
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="/x.com"]::before, [class^=message_] [class^=contents_] [class^=anchor_][href*="twitter.com"]::before,
+[class^=message_] [class^=contents_] [class^=anchor_][href*="fixupx.com"]::before, [class^=message_] [class^=contents_] [class^=anchor_][href*="fxtwitter.com"]::before,
+[class^=message_] [class^=contents_] [class^=anchor_][href*="fixvx.com"]::before, [class^=message_] [class^=contents_] [class^=anchor_][href*="vxtwitter.com"]::before {
+  content: "⬜";
+  color: transparent;
+  background-image: url("/assets/f47485602365c946fa52.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter: drop-shadow(0 0 1px black);
+  font-size: large;
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="/x.com"]:hover, [class^=message_] [class^=contents_] [class^=anchor_][href*="twitter.com"]:hover,
+[class^=message_] [class^=contents_] [class^=anchor_][href*="fixupx.com"]:hover, [class^=message_] [class^=contents_] [class^=anchor_][href*="fxtwitter.com"]:hover,
+[class^=message_] [class^=contents_] [class^=anchor_][href*="fixvx.com"]:hover, [class^=message_] [class^=contents_] [class^=anchor_][href*="vxtwitter.com"]:hover {
+  color: var(--white);
+  background-color: var(--twitter);
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="github.com"] { /* Github Chip */
+  font-size: 0;
+  transition: background-color 50ms ease-out, color 50ms ease-out;
+  color: var(--white);
+  background-color: color-mix(in srgb, var(--github) 20%, transparent);
+  padding: 17px 2px;
+  border-radius: 3px;
+  border-bottom: 1px solid var(--github);
+  padding-bottom: 4px;
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="github.com"] ::after {
+  padding-right: 2px;
+  font-size: 1rem;
+  content: "Github";
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="github.com"]::before {
+  content: "⬜";
+  color: transparent;
+  background-image: url("/assets/767d18d4d02d9a2e1ab1.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter: drop-shadow(0 0 1px black);
+  font-size: large;
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="github.com"]:hover {
+  color: var(--white);
+  background-color: var(--github);
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="reddit.com"] { /* Reddit Chip */
+  font-size: 0;
+  transition: background-color 50ms ease-out, color 50ms ease-out;
+  color: var(--reddit);
+  background-color: color-mix(in srgb, var(--reddit) 20%, transparent);
+  padding: 17px 2px;
+  border-radius: 3px;
+  border-bottom: 1px solid var(--reddit);
+  padding-bottom: 4px;
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="reddit.com"] ::after {
+  padding-right: 2px;
+  font-size: 1rem;
+  content: "Reddit";
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="reddit.com"]::before {
+  content: "⬜";
+  color: transparent;
+  background-image: url("/assets/cc912bf56af0fd3bc301.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter: drop-shadow(0 0 1px black);
+  font-size: large;
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="reddit.com"]:hover {
+  color: var(--white);
+  background-color: var(--reddit);
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="bsky.app"] { /* Bluesky Chip */
+  font-size: 0;
+  transition: background-color 50ms ease-out, color 50ms ease-out;
+  color: var(--bsky);
+  background-color: color-mix(in srgb, var(--bsky) 20%, transparent);
+  padding: 17px 2px;
+  border-radius: 3px;
+  border-bottom: 1px solid var(--bsky);
+  padding-bottom: 4px;
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="bsky.app"] ::after {
+  padding-right: 2px;
+  font-size: 1rem;
+  content: "BlueSky Social";
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="bsky.app"]::before {
+  content: "⬜";
+  color: transparent;
+  background-image: url("https://github.com/bluesky-social/social-app/blob/main/assets/favicon.png?raw=true");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter: drop-shadow(0 0 1px black);
+  font-size: large;
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="bsky.app"]:hover {
+  color: var(--white);
+  background-color: var(--bsky);
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="store.steampowered.com"] { /* Steam Store Chip */
+  font-size: 0;
+  transition: background-color 50ms ease-out, color 50ms ease-out;
+  color: var(--white);
+  background-color: color-mix(in srgb, var(--steam) 20%, transparent);
+  padding: 17px 2px;
+  border-radius: 3px;
+  border-bottom: 1px solid var(--steam);
+  padding-bottom: 4px;
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="store.steampowered.com"] ::after {
+  padding-right: 2px;
+  font-size: 1rem;
+  content: "Steam Store";
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="store.steampowered.com"]::before {
+  content: "⬜";
+  color: transparent;
+  background-image: url("/assets/100f3a82bf746402d6ac.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter: drop-shadow(0 0 1px black);
+  font-size: large;
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="store.steampowered.com"]:hover {
+  color: var(--white);
+  background-color: var(--steam);
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="steamcommunity.com"] { /* Steam Community Chip */
+  font-size: 0;
+  transition: background-color 50ms ease-out, color 50ms ease-out;
+  color: var(--white);
+  background-color: color-mix(in srgb, var(--steam) 20%, transparent);
+  padding: 17px 2px;
+  border-radius: 3px;
+  border-bottom: 1px solid var(--steam);
+  padding-bottom: 4px;
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="steamcommunity.com"] ::after {
+  padding-right: 2px;
+  font-size: 1rem;
+  content: "Steam Community";
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="steamcommunity.com"]::before {
+  content: "⬜";
+  color: transparent;
+  background-image: url("/assets/100f3a82bf746402d6ac.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter: drop-shadow(0 0 1px black);
+  font-size: large;
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="steamcommunity.com"]:hover {
+  color: var(--white);
+  background-color: var(--steam);
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="help.steampowered.com"] { /* Steam Community Chip */
+  font-size: 0;
+  transition: background-color 50ms ease-out, color 50ms ease-out;
+  color: var(--white);
+  background-color: color-mix(in srgb, var(--steam) 20%, transparent);
+  padding: 17px 2px;
+  border-radius: 3px;
+  border-bottom: 1px solid var(--steam);
+  padding-bottom: 4px;
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="help.steampowered.com"] ::after {
+  padding-right: 2px;
+  font-size: 1rem;
+  content: "Steam Support";
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="help.steampowered.com"]::before {
+  content: "⬜";
+  color: transparent;
+  background-image: url("/assets/100f3a82bf746402d6ac.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter: drop-shadow(0 0 1px black);
+  font-size: large;
+}
+[class^=message_] [class^=contents_] [class^=anchor_][href*="help.steampowered.com"]:hover {
+  color: var(--white);
+  background-color: var(--steam);
+}
