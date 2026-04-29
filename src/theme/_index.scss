@@ -1,15 +1,22 @@
 /* Improved Links - Prettier Media Links addon */
 :root {
 	--bsky: #0085ff;
+	--twitter: #949494;
+	--youtube: #ff0000;
+	--spotify: #1db954;
+	--github: #636363;
+	--reddit: #ff4500;
+	--steam: #000;
+	--spacehey: #1D4ED8;
   }
   
   [class^=message_] [class^=contents_] [class^=anchor_], [class^=message_] [class^=repliedMessage_] [class^=anchor_], [class^=message_] [class^=modal] [class^=anchor_], [class^=message_] [class^=topic_] [class^=anchor_], [class^=focusLock] [class^=contents_] [class^=anchor_], [class^=focusLock] [class^=repliedMessage_] [class^=anchor_], [class^=focusLock] [class^=modal] [class^=anchor_], [class^=focusLock] [class^=topic_] [class^=anchor_], [class^=title] [class^=contents_] [class^=anchor_], [class^=title] [class^=repliedMessage_] [class^=anchor_], [class^=title] [class^=modal] [class^=anchor_], [class^=title] [class^=topic_] [class^=anchor_] {
 	transition: background-color 50ms ease-out, color 50ms ease-out;
 	color: var(--mention-foreground);
 	background-color: var(--mention-background);
-	padding: 1px 2px;
-	border-radius: 3px;
-	border-bottom: 1px solid var(--brand-700);
+	font-weight: var(--font-weight-medium);
+	padding: 0px 2px;
+	border-radius: 3px!important;
   }
   [class^=message_] [class^=contents_] [class^=anchor_]::before, [class^=message_] [class^=repliedMessage_] [class^=anchor_]::before, [class^=message_] [class^=modal] [class^=anchor_]::before, [class^=message_] [class^=topic_] [class^=anchor_]::before, [class^=focusLock] [class^=contents_] [class^=anchor_]::before, [class^=focusLock] [class^=repliedMessage_] [class^=anchor_]::before, [class^=focusLock] [class^=modal] [class^=anchor_]::before, [class^=focusLock] [class^=topic_] [class^=anchor_]::before, [class^=title] [class^=contents_] [class^=anchor_]::before, [class^=title] [class^=repliedMessage_] [class^=anchor_]::before, [class^=title] [class^=modal] [class^=anchor_]::before, [class^=title] [class^=topic_] [class^=anchor_]::before {
 	content: "🔗";
@@ -18,7 +25,7 @@
 	font-size: small;
   }
   [class^=message_] [class^=contents_] [class^=anchor_]:hover, [class^=message_] [class^=repliedMessage_] [class^=anchor_]:hover, [class^=message_] [class^=modal] [class^=anchor_]:hover, [class^=message_] [class^=topic_] [class^=anchor_]:hover, [class^=focusLock] [class^=contents_] [class^=anchor_]:hover, [class^=focusLock] [class^=repliedMessage_] [class^=anchor_]:hover, [class^=focusLock] [class^=modal] [class^=anchor_]:hover, [class^=focusLock] [class^=topic_] [class^=anchor_]:hover, [class^=title] [class^=contents_] [class^=anchor_]:hover, [class^=title] [class^=repliedMessage_] [class^=anchor_]:hover, [class^=title] [class^=modal] [class^=anchor_]:hover, [class^=title] [class^=topic_] [class^=anchor_]:hover {
-	background-color: var(--brand-experiment);
+	background-color: var(--brand-500);
   }
 
   
@@ -31,7 +38,6 @@
 		background-color: color-mix(in srgb, var(--spotify) 20%, transparent);
 		padding: 17px 2px;
 		border-radius: 3px;
-		border-bottom: 1px solid var(--spotify);
 		padding-bottom: 4px;
 		::after{
 		  padding-right: 2px;
@@ -53,6 +59,13 @@
 		  background-color: var(--spotify);
 		}
 	  }
+	  [class^=anchor_][href*="spotify.com"][title*=")"] {
+		font-size: inherit;
+		::after {
+		  content: " (Spotify)";
+		}
+	  }
+
 	  [class^=anchor_][href*="youtube.com"], [class^=anchor_][href*="youtu.be"] {/* YouTube Chip */
 		font-size: 0;
 		transition: background-color 50ms ease-out,color 50ms ease-out;
@@ -60,7 +73,6 @@
 		background-color: color-mix(in srgb, var(--youtube) 20%, transparent);
 		padding: 17px 2px;
 		border-radius: 3px;
-		border-bottom: 1px solid var(--youtube);
 		padding-bottom: 4px;
 		::after{
 		  padding-right: 2px;
@@ -82,16 +94,24 @@
 		  background-color: var(--youtube);
 		}
 	  }
+	  :is([class^=anchor_][href*="youtube.com"], [class^=anchor_][href*="youtu.be"])[title*=")"] {
+		font-size: inherit;
+		::after {
+		  content: " (YouTube)";
+		}
+	  }
+
+
 	  [class^=anchor_][href*="/x.com"], [class^=anchor_][href*="twitter.com"],
 	  [class^=anchor_][href*="fixupx.com"], [class^=anchor_][href*="fxtwitter.com"],
-	  [class^=anchor_][href*="fixvx.com"], [class^=anchor_][href*="vxtwitter.com"]    {/* Twitter/X Chip */
+	  [class^=anchor_][href*="fixvx.com"], [class^=anchor_][href*="vxtwitter.com"],
+	  [class^=anchor_][href*="girlcockx.com"]    {/* Twitter/X Chip */
 		font-size: 0;
 		transition: background-color 50ms ease-out,color 50ms ease-out;
 		color: var(--twitter);
 		background-color: color-mix(in srgb, var(--twitter) 20%, transparent);
 		padding: 17px 2px;
 		border-radius: 3px;
-		border-bottom: 1px solid var(--twitter);
 		padding-bottom: 4px;
 		::after{
 		  padding-right: 2px;
@@ -113,6 +133,17 @@
 		  background-color: var(--twitter);
 		}
 	  }
+	  :is([class^=anchor_][href*="/x.com"], [class^=anchor_][href*="twitter.com"],
+	  [class^=anchor_][href*="fixupx.com"], [class^=anchor_][href*="fxtwitter.com"],
+	  [class^=anchor_][href*="fixvx.com"], [class^=anchor_][href*="vxtwitter.com"], 
+	  [class^=anchor_][href*="girlcockx.com"])[title*=")"] {
+		font-size: inherit;
+		::after {
+		  content: " (Twitter)";
+		}
+	  }
+
+
 	  [class^=anchor_][href*="github.com"] {/* Github Chip */
 		font-size: 0;
 		transition: background-color 50ms ease-out,color 50ms ease-out;
@@ -120,7 +151,6 @@
 		background-color: color-mix(in srgb, var(--github) 20%, transparent);
 		padding: 17px 2px;
 		border-radius: 3px;
-		border-bottom: 1px solid var(--github);
 		padding-bottom: 4px;
 		::after{
 		  padding-right: 2px;
@@ -138,11 +168,18 @@
 		  font-size: large;
 		}
 		&:hover {
-		  
 		  color: var(--white);
 		  background-color: var(--github);
 		}
 	  }
+	  [class^=anchor_][href*="github.com"][title*=")"] {
+		font-size: inherit;
+		::after {
+		  content: " (Github)";
+		}
+	  }
+
+
 	  [class^=anchor_][href*="reddit.com"] {/* Reddit Chip */
 		font-size: 0;
 		transition: background-color 50ms ease-out,color 50ms ease-out;
@@ -150,7 +187,6 @@
 		background-color: color-mix(in srgb, var(--reddit) 20%, transparent);
 		padding: 17px 2px;
 		border-radius: 3px;
-		border-bottom: 1px solid var(--reddit);
 		padding-bottom: 4px;
 		::after{
 		  padding-right: 2px;
@@ -172,6 +208,14 @@
 		  background-color: var(--reddit);
 		}
 	  }
+	  [class^=anchor_][href*="reddit.com"][title*=")"] {
+		font-size: 1rem;
+		::after {
+		  content: " (Reddit)";
+		}
+	  }
+
+
 	  [class^=anchor_][href*="bsky.app"] {/* Bluesky Chip */
 		font-size: 0;
 		transition: background-color 50ms ease-out,color 50ms ease-out;
@@ -179,7 +223,6 @@
 		background-color: color-mix(in srgb, var(--bsky) 20%, transparent);
 		padding: 17px 2px;
 		border-radius: 3px;
-		border-bottom: 1px solid var(--bsky);
 		padding-bottom: 4px;
 		::after{
 		  padding-right: 2px;
@@ -201,6 +244,13 @@
 		  background-color: var(--bsky);
 		}
 	  }
+	  [class^=anchor_][href*="bsky.app"][title*=")"] {
+		font-size: inherit;
+		::after {
+		  content: " (Bluesky)";
+		}
+	  }
+
 	  [class^=anchor_][href*="store.steampowered.com"] {/* Steam Store Chip */
 		font-size: 0;
 		transition: background-color 50ms ease-out,color 50ms ease-out;
@@ -208,7 +258,6 @@
 		background-color: color-mix(in srgb, var(--steam) 20%, transparent);
 		padding: 17px 2px;
 		border-radius: 3px;
-		border-bottom: 1px solid var(--steam);
 		padding-bottom: 4px;
 		::after{
 		  padding-right: 2px;
@@ -230,6 +279,13 @@
 		  background-color: var(--steam);
 		}
 	  }
+	  [class^=anchor_][href*="store.steampowered.com"][title*=")"] {
+		font-size: inherit;
+		::after {
+		  content: " (Steam Store)";
+		}
+	  }
+
 	  [class^=anchor_][href*="steamcommunity.com"] {/* Steam Community Chip */
 		font-size: 0;
 		transition: background-color 50ms ease-out,color 50ms ease-out;
@@ -237,7 +293,6 @@
 		background-color: color-mix(in srgb, var(--steam) 20%, transparent);
 		padding: 17px 2px;
 		border-radius: 3px;
-		border-bottom: 1px solid var(--steam);
 		padding-bottom: 4px;
 		::after{
 		  padding-right: 2px;
@@ -259,6 +314,13 @@
 		  background-color: var(--steam);
 		}
 	  }
+	  [class^=anchor_][href*="steamcommunity.com"][title*=")"] {
+		font-size: inherit;
+		::after {
+		  content: " (Steam Community)";
+		}
+	  }
+
 	  [class^=anchor_][href*="help.steampowered.com"] {/* Steam Community Chip */
 		font-size: 0;
 		transition: background-color 50ms ease-out,color 50ms ease-out;
@@ -266,7 +328,6 @@
 		background-color: color-mix(in srgb, var(--steam) 20%, transparent);
 		padding: 17px 2px;
 		border-radius: 3px;
-		border-bottom: 1px solid var(--steam);
 		padding-bottom: 4px;
 		::after{
 		  padding-right: 2px;
@@ -286,6 +347,47 @@
 		&:hover {
 		  color: var(--white);
 		  background-color: var(--steam);
+		}
+	  }
+	  [class^=anchor_][href*="help.steampowered.com"][title*=")"] {
+		font-size: inherit;
+		::after {
+		  content: " (Steam Support)";
+		}
+	  }
+
+ 	  [class^=anchor_][href*="spacehey.com"] {/* SpaceHey Chip */
+		font-size: 0;
+		transition: background-color 50ms ease-out,color 50ms ease-out;
+		color: var(--spacehey);
+		background-color: color-mix(in srgb, var(--spacehey) 20%, transparent);
+		padding: 17px 2px;
+		border-radius: 3px;
+		padding-bottom: 4px;
+		::after{
+		  padding-right: 2px;
+		  font-size: 1rem;
+		  content: "SpaceHey";
+		}
+		&::before{
+		  content: "⬜";
+		  color: transparent;
+		  background-image: url("https://spacehey.com/img/favicons/favicon-32x32.png");
+		  background-repeat: no-repeat;
+		  background-position: center;
+		  background-size: contain;
+		  filter:contrast(100) grayscale(1) invert(1);
+		  font-size: large;
+		}
+		&:hover {
+		  color: var(--white);
+		  background-color: var(--spacehey);
+		}
+	  }
+	  [class^=anchor_][href*="spacehey.com"][title*=")"] {
+		font-size: inherit;
+		::after {
+		  content: " (SpaceHey)";
 		}
 	  }
 	}
